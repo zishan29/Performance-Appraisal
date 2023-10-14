@@ -1,0 +1,66 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+  display: grid;
+  justify-content: center;
+}
+
+select:focus,
+input:focus {
+  outline: none;
+}
+
+form + div {
+  font-size: 0.9rem;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: grid;
+  gap: 5px;
+}
+
+select,
+input {
+  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+form#certification,
+form#taughtCourses {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  align-self: center;
+  justify-self: center;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+.title {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  justify-self: center;
+  margin: 10px 0;
+}
+
+#studentFeedback {
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+}
+
+aside {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 60px;
+  top: 50px;
+  gap: 10px;
+}
