@@ -1,50 +1,27 @@
 import { useState } from 'react';
 
-export default function GuestLecture() {
-  const [state, setState] = useState('a');
-  const [benchmark, setBenchmark] = useState('1');
+export default function CoCurricular() {
+  const [typeOfEvent, setTypeOfEvent] = useState('1.5');
+  const [awardsReceived, setAwardsReceived] = useState('2');
   const [feedback, setFeedback] = useState(0);
   const [attendees, setAttendees] = useState(0);
   const [totalStudents, setTotalStudents] = useState(0);
   const [mapping, setMapping] = useState('1.5');
 
-  let label = 'Industry Expert';
-  let option1 = 'International / National VP and above / Unicorn StartUp - CXO';
-  let option2 = 'SME';
-  if (state !== 'a') {
-    label = 'Top University / Institute';
-    option1 = 'International / National Professor';
-    option2 = 'State Professor';
-  }
-
   let feedbackValue = 0;
   if (feedback >= 2.5) feedbackValue = attendees / totalStudents;
 
-  let weight = benchmark * feedbackValue * mapping;
-  let marks = weight * 75;
-
+  let weight =
+    Math.round(
+      (feedbackValue * typeOfEvent * awardsReceived * mapping +
+        Number.EPSILON) *
+        100,
+    ) / 100;
+  let marks = Math.ceil(Math.round((weight * 75 + Number.EPSILON) * 100) / 100);
   return (
     <>
-      <div className="title">BSA - Guest Lecture</div>
-      <form action="" id="taughtCourses">
-        <label htmlFor="qualityOfSpeaker">Quality of speaker: </label>
-        <select
-          name="qualityOfSpeaker"
-          id="qualityOfSpeaker"
-          onChange={(e) => setState(e.target.value)}
-        >
-          <option value="a">Industry Expert</option>
-          <option value="b">Top University / Institute</option>
-        </select>
-        <label htmlFor="qualityBenchmark">{label}</label>
-        <select
-          name="qualityBenchmark"
-          id="qualityBenchmark"
-          onChange={(e) => setBenchmark(e.target.value)}
-        >
-          <option value="1">{option1}</option>
-          <option value="0.5">{option2}</option>
-        </select>
+      <div className="title">BSA - Co-curricular</div>
+      <form action="">
         <div id="studentFeedback">
           Students Feedback about quality and relevance
         </div>
@@ -68,6 +45,30 @@ export default function GuestLecture() {
           id="totalStudents"
           onChange={(e) => setTotalStudents(e.target.value)}
         />
+        <label htmlFor="typeOfEvent">Type of Event</label>
+        <select
+          id="typeOfEvent"
+          onChange={(e) => setTypeOfEvent(e.target.value)}
+        >
+          <option value="1.5">International</option>
+          <option value="1.3">National</option>
+          <option value="1.2">State Level</option>
+          <option value="1.1">Intercollegiate (city level)</option>
+          <option value="1">Inter-Departmental</option>
+          <option value="0.5">Within class</option>
+        </select>
+        <label htmlFor="awardsReceived">Awards Received</label>
+        <select
+          name="awardsReceived"
+          id="awardsReceived"
+          onChange={(e) => setAwardsReceived(e.target.value)}
+        >
+          <option value="2">International</option>
+          <option value="1.8">National</option>
+          <option value="1.6">State Level</option>
+          <option value="1.4">Intercollegiate (city level)</option>
+          <option value="1">Within class</option>
+        </select>
         <label htmlFor="mapping">Mapping: </label>
         <select
           name="mapping"

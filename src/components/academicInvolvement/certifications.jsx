@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Certification() {
+export default function Certification() {
   const [name, setName] = useState('');
   const [hours, setHours] = useState('1');
   const [platform, setPlatform] = useState('1.5');
@@ -70,10 +70,8 @@ function Certification() {
       </form>
       <div>
         <div className="name">Faculty name: {name}</div>
-        <div className="marks">marks: {marks}</div>
+        <div className="marks">Self Appraisal Score: {marks}</div>
       </div>
     </>
   );
 }
-
-export default Certification;

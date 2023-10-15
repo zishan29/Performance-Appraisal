@@ -1,36 +1,32 @@
-import Certification from './components/certifications';
-import TaughtCourses from './components/taughtCourses';
-import GuestLecture from './components/guestLecture';
-import './App.css';
 import { useState } from 'react';
+import AcademicInvolvement from './components/academicInvolvement';
+import StudentDevelopment from './components/studentDevelopment';
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  function Form() {
-    if (activeIndex === 0) {
-      return <Certification />;
-    }
-    if (activeIndex === 1) {
-      return <TaughtCourses />;
-    }
-    if (activeIndex === 2) {
-      return <GuestLecture />;
-    }
-  }
 
   function Button({ title, setIndex }) {
     return <button onClick={setIndex}>{title}</button>;
   }
 
+  function Panel() {
+    if (activeIndex === 0) return <AcademicInvolvement />;
+    if (activeIndex === 1) return <StudentDevelopment />;
+  }
+
   return (
     <>
-      <aside>
-        <Button title="AI 1" setIndex={() => setActiveIndex(0)} />
-        <Button title="AI 2" setIndex={() => setActiveIndex(1)} />
-        <Button title="AI 3.1" setIndex={() => setActiveIndex(2)} />
-      </aside>
-      <Form />
+      <nav className="buttons">
+        <Button
+          title="Academic Involvement"
+          setIndex={() => setActiveIndex(0)}
+        />
+        <Button
+          title="Student Development"
+          setIndex={() => setActiveIndex(1)}
+        />
+      </nav>
+      <Panel />
     </>
   );
 }

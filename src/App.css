@@ -27,14 +27,14 @@ input {
   border: 1px solid black;
 }
 
-form#certification,
-form#taughtCourses {
+form {
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
   align-self: center;
   justify-self: center;
-  max-width: 500px;
+  width: max-content;
+  max-width: 1000px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -49,9 +49,18 @@ label {
   grid-row: 1 / 2;
   justify-self: center;
   margin: 10px 0;
+  margin-top: 80px;
 }
 
-#studentFeedback {
+#studentFeedback,
+#internshipLabel,
+#projectLabel,
+#studentsMarks,
+.MMS,
+.Engg,
+label[for='yes'],
+label[for='no'] {
+  font-weight: bold;
   grid-column: 1 / -1;
   font-size: 0.9rem;
 }
@@ -60,7 +69,16 @@ aside {
   position: absolute;
   display: flex;
   flex-direction: column;
-  left: 60px;
-  top: 50px;
+  left: 30px;
+  top: 100px;
   gap: 10px;
+}
+
+nav.buttons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }

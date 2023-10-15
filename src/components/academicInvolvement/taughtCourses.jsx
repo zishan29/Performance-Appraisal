@@ -11,13 +11,13 @@ export default function TaughtCourses() {
   if (target >= 100) {
     score = (300 * completionOfSyllabus) / 100;
   }
-  if (90 < target <= 99) {
+  if (90 <= target && target <= 99) {
     score = (225 * completionOfSyllabus) / 100;
   }
-  if (80 < target <= 89) {
+  if (80 <= target && target <= 89) {
     score = (150 * completionOfSyllabus) / 100;
   }
-  if (70 < target <= 79) {
+  if (70 <= target && target <= 79) {
     score = (100 * completionOfSyllabus) / 100;
   }
   if (target < 70) {
