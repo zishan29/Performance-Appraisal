@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function LabWork() {
+export default function LabWork({ setLabWorkMarks }) {
   const [MMS1, setMMS1] = useState('1.5');
   const [MMS2, setMMS2] = useState('1');
   const [Engg, setEngg] = useState('1.5');
@@ -12,123 +13,144 @@ export default function LabWork() {
   let weight = Math.max(MMS1 * MMS2, Engg * Engg2 * Engg3 * Engg4) * mapping;
   let marks = Math.round((weight * 100 + Number.EPSILON) * 100) / 100;
 
+  function onSubmit() {
+    setLabWorkMarks(marks);
+  }
+
   return (
     <>
-      <div className="title">Lab Work / Case Study</div>
-      <form action="">
-        <label className="MMS">For MMS</label>
-        <label className="MMS" style={{ fontWeight: 400 }}>
-          Uploading videos of published case studies (including last 6 months)
-        </label>
-        <label htmlFor="yes" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="yes"
-            value="1.5"
-            name="MMS1"
-            onChange={(e) => setMMS1(e.target.value)}
-          ></input>{' '}
-          yes
-        </label>
-        <label htmlFor="no" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="no"
-            value="0"
-            name="MMS1"
-            onChange={(e) => setMMS1(e.target.value)}
-          ></input>{' '}
-          no
-        </label>
-        <label className="MMS" style={{ fontWeight: 400 }}>
-          Case studies published (including last 6 months)
-        </label>
-        <label htmlFor="yes" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="yes"
-            value="1"
-            name="MMS2"
-            onChange={(e) => setMMS2(e.target.value)}
-          ></input>{' '}
-          yes
-        </label>
-        <label htmlFor="no" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="no"
-            value="0"
-            name="MMS2"
-            onChange={(e) => setMMS2(e.target.value)}
-          ></input>{' '}
-          no
-        </label>
-        <label className="Engg">For Engg</label>
-        <label className="Engg" style={{ fontWeight: 400 }}>
-          Uploading videos of new experiments / PBL prepared during the PA
-          evaluation period
-        </label>
-        <label htmlFor="yes" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="yes"
-            value="1.5"
-            name="Engg"
-            onChange={(e) => setEngg(e.target.value)}
-          ></input>{' '}
-          yes
-        </label>
-        <label htmlFor="no" style={{ fontWeight: 400 }}>
-          <input
-            type="radio"
-            id="no"
-            value="0"
-            name="Engg"
-            onChange={(e) => setEngg(e.target.value)}
-          ></input>{' '}
-          no
-        </label>
-        <label htmlFor="Engg2">
-          Use of new tools / simulators / Virtual lab (cluster mentor to give
-          quality score between 0 to 1.25)
-        </label>
-        <input
-          type="number"
-          id="Engg2"
-          onChange={(e) => setEngg2(e.target.value)}
-        />
-        <label htmlFor="Engg3">
-          Quality of PB statements (cluster mentor to give quality score between
-          0 to 1)
-        </label>
-        <input
-          type="number"
-          id="Engg3"
-          onChange={(e) => setEngg3(e.target.value)}
-        />
-        <label htmlFor="Engg4">
-          Continuous assessment (cluster mentor to give quality score between 0
-          to 1)
-        </label>
-        <input
-          type="number"
-          id="Engg4"
-          onChange={(e) => setEngg4(e.target.value)}
-        />
-        <label htmlFor="mapping">Mapping: </label>
-        <select
-          name="mapping"
-          id="mapping"
-          onChange={(e) => setMapping(e.target.value)}
-        >
-          <option value="1">Strongly to CO</option>
-          <option value="0.8">Moderately to CO</option>
-          <option value="0">Not mapped to CO</option>
-        </select>
-      </form>
-      <div>
-        <div className="marks">Marks obtained: {marks}</div>
+      <div className="form-container">
+        <div className="title">Lab Work / Case Study</div>
+        <form action="" className="form">
+          <label className="MMS">For MMS</label>
+          <label className="MMS" style={{ fontWeight: 400 }}>
+            Uploading videos of published case studies (including last 6 months)
+          </label>
+          <label htmlFor="yes" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="yes"
+              value="1.5"
+              name="MMS1"
+              onChange={(e) => setMMS1(e.target.value)}
+            ></input>{' '}
+            yes
+          </label>
+          <label htmlFor="no" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="no"
+              value="0"
+              name="MMS1"
+              onChange={(e) => setMMS1(e.target.value)}
+            ></input>{' '}
+            no
+          </label>
+          <label className="MMS" style={{ fontWeight: 400 }}>
+            Case studies published (including last 6 months)
+          </label>
+          <label htmlFor="yes1" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="yes1"
+              value="1"
+              name="MMS2"
+              onChange={(e) => setMMS2(e.target.value)}
+            ></input>{' '}
+            yes
+          </label>
+          <label htmlFor="no1" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="no1"
+              value="0"
+              name="MMS2"
+              onChange={(e) => setMMS2(e.target.value)}
+            ></input>{' '}
+            no
+          </label>
+          <label className="Engg">For Engg</label>
+          <label className="Engg" style={{ fontWeight: 400 }}>
+            Uploading videos of new experiments / PBL prepared during the PA
+            evaluation period
+          </label>
+          <label htmlFor="yes2" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="yes2"
+              value="1.5"
+              name="Engg"
+              onChange={(e) => setEngg(e.target.value)}
+            ></input>{' '}
+            yes
+          </label>
+          <label htmlFor="no2" style={{ fontWeight: 400 }}>
+            <input
+              type="radio"
+              id="no2"
+              value="0"
+              name="Engg"
+              onChange={(e) => setEngg(e.target.value)}
+            ></input>{' '}
+            no
+          </label>
+          <div className="form-group">
+            <label htmlFor="Engg2">
+              Use of new tools / simulators / Virtual lab (cluster mentor to
+              give quality score between 0 to 1.25)
+            </label>
+            <input
+              type="number"
+              id="Engg2"
+              onChange={(e) => setEngg2(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="Engg3">
+              Quality of PB statements (cluster mentor to give quality score
+              between 0 to 1)
+            </label>
+            <input
+              type="number"
+              id="Engg3"
+              onChange={(e) => setEngg3(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="Engg4">
+              Continuous assessment (cluster mentor to give quality score
+              between 0 to 1)
+            </label>
+            <input
+              type="number"
+              id="Engg4"
+              onChange={(e) => setEngg4(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="mapping">Mapping: </label>
+            <select
+              name="mapping"
+              id="mapping"
+              onChange={(e) => setMapping(e.target.value)}
+            >
+              <option value="1">Strongly to CO</option>
+              <option value="0.8">Moderately to CO</option>
+              <option value="0">Not mapped to CO</option>
+            </select>
+          </div>
+          <button className="form-submit-btn" onClick={onSubmit}>
+            submit
+          </button>
+        </form>
       </div>
+      {/* <div>
+        <div className="marks">Marks obtained: {marks}</div>
+      </div> */}
     </>
   );
 }
+
+LabWork.propTypes = {
+  setLabWorkMarks: PropTypes.func,
+};

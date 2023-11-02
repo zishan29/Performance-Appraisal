@@ -3,6 +3,7 @@ import AverageAttendance from './studentDevelopment/averageAttendance';
 import CourseResult from './studentDevelopment/courseResult';
 import TopperMarks from './studentDevelopment/topperMarks';
 import StudentFeedback from './studentDevelopment/studentFeedback';
+import PropTypes from 'prop-types';
 
 export default function StudentDevelopment() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,6 +11,11 @@ export default function StudentDevelopment() {
   function Button({ title, setIndex }) {
     return <button onClick={setIndex}>{title}</button>;
   }
+
+  Button.propTypes = {
+    title: PropTypes.string,
+    setIndex: PropTypes.func,
+  };
 
   function Panel() {
     if (activeIndex === 0) {
@@ -25,15 +31,16 @@ export default function StudentDevelopment() {
       return <StudentFeedback />;
     }
   }
+
   return (
     <>
-      <aside>
+      {/* <aside>
         <Button title="SD 1" setIndex={() => setActiveIndex(0)} />
         <Button title="SD 2" setIndex={() => setActiveIndex(1)} />
         <Button title="SD 3" setIndex={() => setActiveIndex(2)} />
         <Button title="SD 4" setIndex={() => setActiveIndex(3)} />
-      </aside>
-      <Panel />
+      </aside> */}
+      {/* <Panel /> */}
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function TaughtCourses() {
+export default function TaughtCourses({ setTaughtCourseMarks }) {
   const [courseName, setCourseName] = useState('');
   const [lecturesEngaged, setLecturesEngaged] = useState(0);
   const [lecturesAsPerSyllabus, setLectureAsPerSyllabus] = useState(0);
@@ -23,46 +24,70 @@ export default function TaughtCourses() {
   if (target < 70) {
     score = (0 * completionOfSyllabus) / 100;
   }
+
+  function onSubmit(e) {
+    e.preventDefault;
+    setTaughtCourseMarks(score);
+  }
+
   return (
     <>
-      <div className="title">Taught Course (during PA evaluation period)</div>
-      <form action="" id="taughtCourses">
-        <label htmlFor="courseName">Course/Lab name: </label>
-        <input
-          type="text"
-          id="courseName"
-          onChange={(e) => setCourseName(e.target.value)}
-        />
-        <label htmlFor="noOfLecturesEngaged">
-          No. of lectures engaged (including extra)
-        </label>
-        <input
-          type="number"
-          id="noOfLecturesEngaged"
-          onChange={(e) => setLecturesEngaged(e.target.value)}
-        />
-        <label htmlFor="noOfLecturesAsPerSyllabus">
-          No. of lectures as per syllabus
-        </label>
-        <input
-          type="number"
-          id="noOfLecturesAsPerSyllabus"
-          onChange={(e) => setLectureAsPerSyllabus(e.target.value)}
-        />
-        <label htmlFor="completionOfSyllabus">
-          Completion of syllabus in %:
-        </label>
-        <input
-          type="number"
-          id="completionOfSyllabus"
-          onChange={(e) => setCompletionOfSyllabus(e.target.value)}
-        />
-      </form>
-      <div>
+      <div className="form-container">
+        <div className="title">Taught Course (during PA evaluation period)</div>
+        <form action="" id="taughtCourses" className="form">
+          <div className="form-group">
+            <label htmlFor="courseName">Course/Lab name: </label>
+            <input
+              type="text"
+              id="courseName"
+              onChange={(e) => setCourseName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="noOfLecturesEngaged">
+              No. of lectures engaged (including extra)
+            </label>
+            <input
+              type="number"
+              id="noOfLecturesEngaged"
+              onChange={(e) => setLecturesEngaged(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="noOfLecturesAsPerSyllabus">
+              No. of lectures as per syllabus
+            </label>
+            <input
+              type="number"
+              id="noOfLecturesAsPerSyllabus"
+              onChange={(e) => setLectureAsPerSyllabus(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="completionOfSyllabus">
+              Completion of syllabus in %:
+            </label>
+            <input
+              type="number"
+              id="completionOfSyllabus"
+              onChange={(e) => setCompletionOfSyllabus(e.target.value)}
+            />
+          </div>
+          <button className="form-submit-btn" onClick={onSubmit}>
+            submit
+          </button>
+        </form>
+      </div>
+
+      {/* <div>
         <div className="courseName">Course Name: {courseName}</div>
         <div className="target">% target obtained: {target}</div>
         <div className="appraisalScore">Self Appraisal Score: {score}</div>
-      </div>
+      </div> */}
     </>
   );
 }
+
+TaughtCourses.propTypes = {
+  setTaughtCourseMarks: PropTypes.func,
+};
