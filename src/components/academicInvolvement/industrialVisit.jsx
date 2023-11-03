@@ -162,7 +162,7 @@ export default function IndustrialVisit({ setIndustrialVisitMarks }) {
               <option value="0">Neither mapping to PO or CO</option>
             </select>
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

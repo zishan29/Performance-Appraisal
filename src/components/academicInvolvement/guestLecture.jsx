@@ -34,7 +34,7 @@ export default function GuestLecture({ setGuestLectureMarks }) {
         <div className="title">BSA - Guest Lecture</div>
         <form action="" id="taughtCourses" className="form">
           <div className="form-group">
-            <label htmlFor="qualityOfSpeaker">Quality of speaker: </label>
+            <label htmlFor="qualityOfSpeaker">Quality of speaker</label>
             <select
               name="qualityOfSpeaker"
               id="qualityOfSpeaker"
@@ -82,7 +82,7 @@ export default function GuestLecture({ setGuestLectureMarks }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="mapping">Mapping: </label>
+            <label htmlFor="mapping">Mapping</label>
             <select
               name="mapping"
               id="mapping"
@@ -95,7 +95,7 @@ export default function GuestLecture({ setGuestLectureMarks }) {
               <option value="0">Neither mapping to PO or CO</option>
             </select>
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

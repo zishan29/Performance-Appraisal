@@ -6,6 +6,7 @@ import CoCurricular from './academicInvolvement/co-curricular';
 import MiniProject from './academicInvolvement/miniProject';
 import LabWork from './academicInvolvement/labWork';
 import CourseOutcome from './academicInvolvement/courseOutcome';
+import TLPInnovation from './academicInvolvement/TLPInnovations';
 import './academicInvolvement/academicStyle.css';
 import '../App.css';
 import { useState } from 'react';
@@ -21,6 +22,7 @@ export default function AcademicInvolvement() {
   const [labWorkMarks, setLabWorkMarks] = useState(0);
   const [miniProjectMarks, setMiniProjectMarks] = useState(0);
   const [taughtCoursesMarks, setTaughtCourseMarks] = useState(0);
+  const [TLPInnovationMarks, setTLPInnovationMarks] = useState(0);
   let totalMarks;
   let AIColor = '#ee6055';
 
@@ -32,7 +34,8 @@ export default function AcademicInvolvement() {
     industrialVisitMarks +
     labWorkMarks +
     miniProjectMarks +
-    taughtCoursesMarks;
+    taughtCoursesMarks +
+    TLPInnovationMarks;
 
   console.log(totalMarks, AIColor);
 
@@ -71,6 +74,9 @@ export default function AcademicInvolvement() {
     }
     if (activeIndex === 7) {
       return <CourseOutcome setCourseOutcomeMarks={setCourseOutcomeMarks} />;
+    }
+    if (activeIndex === 8) {
+      return <TLPInnovation setTLPInnovationMarks={setTLPInnovationMarks} />;
     }
   }
 
@@ -116,6 +122,7 @@ export default function AcademicInvolvement() {
         <Button title="Mini Project" setIndex={() => setActiveIndex(5)} />
         <Button title="Lab Work" setIndex={() => setActiveIndex(6)} />
         <Button title="Course Outcome" setIndex={() => setActiveIndex(7)} />
+        <Button title="TLP Innovation" setIndex={() => setActiveIndex(8)} />
       </aside>
       <Form />
       <Card totalMarks={totalMarks} />

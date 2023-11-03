@@ -63,7 +63,7 @@ export default function MiniProject({ setMiniProjectMarks }) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="mapping">Mapping: </label>
+            <label htmlFor="mapping">Mapping</label>
             <select
               name="mapping"
               id="mapping"
@@ -76,7 +76,7 @@ export default function MiniProject({ setMiniProjectMarks }) {
               <option value="0">Neither mapping to PO or CO</option>
             </select>
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

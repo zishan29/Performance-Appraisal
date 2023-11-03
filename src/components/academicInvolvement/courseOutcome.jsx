@@ -110,7 +110,7 @@ export default function CourseOutcome({ setCourseOutcomeMarks }) {
             />
           </div>
 
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

@@ -25,8 +25,7 @@ export default function TaughtCourses({ setTaughtCourseMarks }) {
     score = (0 * completionOfSyllabus) / 100;
   }
 
-  function onSubmit(e) {
-    e.preventDefault;
+  function onSubmit() {
     setTaughtCourseMarks(score);
   }
 
@@ -36,7 +35,7 @@ export default function TaughtCourses({ setTaughtCourseMarks }) {
         <div className="title">Taught Course (during PA evaluation period)</div>
         <form action="" id="taughtCourses" className="form">
           <div className="form-group">
-            <label htmlFor="courseName">Course/Lab name: </label>
+            <label htmlFor="courseName">Course/Lab name</label>
             <input
               type="text"
               id="courseName"
@@ -65,7 +64,7 @@ export default function TaughtCourses({ setTaughtCourseMarks }) {
           </div>
           <div className="form-group">
             <label htmlFor="completionOfSyllabus">
-              Completion of syllabus in %:
+              Completion of syllabus in %
             </label>
             <input
               type="number"
@@ -73,7 +72,7 @@ export default function TaughtCourses({ setTaughtCourseMarks }) {
               onChange={(e) => setCompletionOfSyllabus(e.target.value)}
             />
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

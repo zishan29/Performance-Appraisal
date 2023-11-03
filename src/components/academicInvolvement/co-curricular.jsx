@@ -42,7 +42,7 @@ export default function CoCurricular({ setCoCurricularMarks }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="noOfAttendees">No. of Attendees: </label>
+            <label htmlFor="noOfAttendees">No. of Attendees</label>
             <input
               type="number"
               id="noOfAttendees"
@@ -50,7 +50,7 @@ export default function CoCurricular({ setCoCurricularMarks }) {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="totalStudents">Total Students: </label>
+            <label htmlFor="totalStudents">Total Students</label>
             <input
               type="number"
               id="totalStudents"
@@ -86,7 +86,7 @@ export default function CoCurricular({ setCoCurricularMarks }) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="mapping">Mapping: </label>
+            <label htmlFor="mapping">Mapping</label>
             <select
               name="mapping"
               id="mapping"
@@ -99,7 +99,7 @@ export default function CoCurricular({ setCoCurricularMarks }) {
               <option value="0">Neither mapping to PO or CO</option>
             </select>
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>

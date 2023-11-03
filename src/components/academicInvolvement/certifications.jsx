@@ -20,7 +20,7 @@ export default function Certification({ setCertificationMarks }) {
         <div className="title">Certification for courses alloted</div>
         <form id="certification" className="form" action="#">
           <div className="form-group">
-            <label htmlFor="noOfHours">Course hours: </label>
+            <label htmlFor="noOfHours">Course hours</label>
             <select
               name="noOfHours"
               id="noOfHours"
@@ -33,7 +33,7 @@ export default function Certification({ setCertificationMarks }) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="platform">Platform: </label>
+            <label htmlFor="platform">Platform</label>
             <select
               name="platform"
               id="platform"
@@ -48,7 +48,7 @@ export default function Certification({ setCertificationMarks }) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="assessmentOutcome">Assessment outcome: </label>
+            <label htmlFor="assessmentOutcome">Assessment outcome</label>
             <select
               name="assessmentOutcome"
               id="assessmentOutcome"
@@ -62,7 +62,7 @@ export default function Certification({ setCertificationMarks }) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="dateOfCertification">Date of certification: </label>
+            <label htmlFor="dateOfCertification">Date of certification</label>
             <select
               name="dateOfCertification"
               id="dateOfCertification"
@@ -75,7 +75,7 @@ export default function Certification({ setCertificationMarks }) {
               <option value="0">More than 6 years ago</option>
             </select>
           </div>
-          <button className="form-submit-btn" onClick={onSubmit}>
+          <button className="form-submit-btn" type="button" onClick={onSubmit}>
             submit
           </button>
         </form>
